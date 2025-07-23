@@ -10,7 +10,6 @@ venv/
 .pytest_cache/
 
 # Machine Learning
-*.joblib
 *.pkl
 *.h5
 *.keras
