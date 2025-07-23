@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python/
+env/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# Machine Learning
+*.joblib
+*.pkl
+*.h5
+*.keras
+*.onnx
+
+# IDEs
+.vscode/
+.idea/
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp

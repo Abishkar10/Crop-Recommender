@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crop Recommendation System</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Recommendation System</h1>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="N">Nitrogen (N) Ratio</label>
+                <input type="number" id="N" name="N" value="{{ form_data.N if form_data else 90 }}" required>
+            </div>
+            <div class="form-group">
+                <label for="P">Phosphorus (P) Ratio</label>
+                <input type="number" id="P" name="P" value="{{ form_data.P if form_data else 42 }}" required>
+            </div>
+            <div class="form-group">
+                <label for="K">Potassium (K) Ratio</label>
+                <input type="number" id="K" name="K" value="{{ form_data.K if form_data else 43 }}" required>
+            </div>
+            <div class="form-group">
+                <label for="temperature">Temperature (&deg;C)</label>
+                <input type="range" id="temperature" name="temperature" min="0" max="50" value="{{ form_data.temperature if form_data else 21 }}" oninput="this.nextElementSibling.value = this.value">
+                <output>{{ form_data.temperature if form_data else 21 }}</output>
+            </div>
+            <div class="form-group">
+                <label for="humidity">Humidity (%)</label>
+                <input type="range" id="humidity" name="humidity" min="0" max="100" value="{{ form_data.humidity if form_data else 82 }}" oninput="this.nextElementSibling.value = this.value">
+                <output>{{ form_data.humidity if form_data else 82 }}</output>
+            </div>
+            <div class="form-group">
+                <label for="ph">Soil pH</label>
+                <input type="number" id="ph" name="ph" step="0.1" value="{{ form_data.ph if form_data else 6.5 }}" required>
+            </div>
+            <div class="form-group">
+                <label for="rainfall">Rainfall (mm)</label>
+                <input type="range" id="rainfall" name="rainfall" min="20" max="300" value="{{ form_data.rainfall if form_data else 203 }}" oninput="this.nextElementSibling.value = this.value">
+                <output>{{ form_data.rainfall if form_data else 203 }}</output>
+            </div>
+            <button type="submit">Get Recommendation</button>
+        </form>
+        {% if recommendation %}
+        <div class="result">
+            <h2>Recommended Crop: <span>{{ recommendation }}</span></h2>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
