@@ -18,14 +18,17 @@
             <form action="/predict" method="post" onsubmit="return validateForm()">
                 <div class="form-group">
                     <label for="N">Nitrogen (N) Ratio</label>
+                <small>(0-200)</small>
                     <input type="number" id="N" name="N" value="{{ form_data.N if form_data else 90 }}" min="0" max="200" required onchange="checkRange(this, 'Nitrogen', 0, 200)">
                 </div>
                 <div class="form-group">
                     <label for="P">Phosphorus (P) Ratio</label>
+                <small>(0-200)</small>
                     <input type="number" id="P" name="P" value="{{ form_data.P if form_data else 42 }}" min="0" max="200" required onchange="checkRange(this, 'Phosphorus', 0, 200)">
                 </div>
                 <div class="form-group">
                     <label for="K">Potassium (K) Ratio</label>
+                <small>(0-200)</small>
                     <input type="number" id="K" name="K" value="{{ form_data.K if form_data else 43 }}" min="0" max="200" required onchange="checkRange(this, 'Potassium', 0, 200)">
                 </div>
                 <div class="form-group">
