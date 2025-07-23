@@ -7,6 +7,17 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
+    padding: 20px; /* Add some padding for smaller screens */
+    box-sizing: border-box;
+}
+
+.main-wrapper {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 30px; /* Space between sections */
+    max-width: 1200px; /* Max width for the whole layout */
+    width: 100%;
+    align-items: flex-start; /* Align items to the top */
 }
 
 .container {
@@ -14,9 +25,21 @@ body {
     padding: 40px;
     border-radius: 12px;
     box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-    width: 100%;
-    max-width: 500px;
+    flex: 1; /* Allow containers to grow and shrink */
+    min-width: 300px; /* Minimum width before wrapping */
+}
+
+.form-section {
+    max-width: 500px; /* Max width for the form */
+}
+
+.result-section {
+    max-width: 500px; /* Max width for the result */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 h1 {
@@ -74,11 +97,12 @@ button:hover {
 }
 
 .result {
-    margin-top: 30px;
+    margin-top: 20px;
     padding: 20px;
     background-color: #e8f5e9;
     border-radius: 8px;
     border-left: 5px solid #4CAF50;
+    width: 100%;
 }
 
 .result h2 {
@@ -86,8 +110,37 @@ button:hover {
     color: #333;
 }
 
-.result span {
+.result span.crop-name {
     color: #2c5d43;
     font-weight: bold;
     text-transform: capitalize;
+}
+
+.crop-image {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.error-message {
+    background-color: #ffe0b2; /* Light orange */
+    color: #e65100; /* Dark orange */
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: 1px solid #e65100;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-wrapper {
+        flex-direction: column; /* Stack vertically on smaller screens */
+        align-items: center;
+    }
+
+    .form-section, .result-section {
+        max-width: 100%; /* Full width on small screens */
+    }
 }
